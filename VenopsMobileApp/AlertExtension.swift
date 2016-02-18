@@ -53,6 +53,18 @@ extension LoginViewController{
 
 }
 
+extension RegistrationTableViewController {
+
+    func generalAlert(title title: String, message: String, actionTitle: String){
+
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let alertAction = UIAlertAction(title: actionTitle, style: .Default, handler: nil)
+        alertViewController.addAction(alertAction)
+        presentViewController(alertViewController, animated: true, completion: nil)
+    }
+
+}
+
 
 
 

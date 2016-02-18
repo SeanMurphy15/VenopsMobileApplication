@@ -57,6 +57,7 @@
 		FF30FD771C59842700637A6C /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30FD751C59842700637A6C /* RegistrationTableViewController.swift */; };
 		FF30FD7C1C5987E900637A6C /* RegistrationConfirmationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30FD7B1C5987E900637A6C /* RegistrationConfirmationTableViewController.swift */; };
 		FF56FC561C5C5E33001F5D00 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56FC551C5C5E33001F5D00 /* ScannerViewController.swift */; };
+		FF6CD0AD1C759C3D00FA0FE9 /* ResourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6CD0AC1C759C3D00FA0FE9 /* ResourceController.swift */; };
 		FFE418291C5D489A0061BC73 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE418281C5D489A0061BC73 /* libicucore.tbd */; };
 		FFE4182B1C5ED73B0061BC73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE4182A1C5ED73B0061BC73 /* LoginViewController.swift */; };
 		FFE4182D1C5FDA150061BC73 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE4182C1C5FDA150061BC73 /* AlertExtension.swift */; };
@@ -129,6 +130,7 @@
 		FF30FD751C59842700637A6C /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
 		FF30FD7B1C5987E900637A6C /* RegistrationConfirmationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationConfirmationTableViewController.swift; path = ../RegistrationConfirmationTableViewController.swift; sourceTree = "<group>"; };
 		FF56FC551C5C5E33001F5D00 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		FF6CD0AC1C759C3D00FA0FE9 /* ResourceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceController.swift; sourceTree = "<group>"; };
 		FFE418281C5D489A0061BC73 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		FFE4182A1C5ED73B0061BC73 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
 		FFE4182C1C5FDA150061BC73 /* AlertExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
@@ -197,14 +199,14 @@
 		E60105271C57E3EA00536661 /* VenopsMobileApp */ = {
 			isa = PBXGroup;
 			children = (
-				FF0463931C5BD0AA00CA3760 /* VenopsMobileApp.entitlements */,
 				E60105281C57E3EA00536661 /* AppDelegate.swift */,
-				E601054A1C57EA1A00536661 /* Controllers */,
 				FFE4182E1C5FDA240061BC73 /* Extension */,
+				E601054A1C57EA1A00536661 /* Controllers */,
 				E60105491C57EA1500536661 /* ViewControllers */,
 				E601052F1C57E3EB00536661 /* Assets.xcassets */,
 				E60105311C57E3EB00536661 /* LaunchScreen.storyboard */,
 				E60105341C57E3EB00536661 /* Info.plist */,
+				FF0463931C5BD0AA00CA3760 /* VenopsMobileApp.entitlements */,
 			);
 			path = VenopsMobileApp;
 			sourceTree = "<group>";
@@ -234,6 +236,7 @@
 		E601054A1C57EA1A00536661 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FF6CD0AC1C759C3D00FA0FE9 /* ResourceController.swift */,
 				FF0434CD1C5D36A5004BA4FB /* FirebaseController.swift */,
 				FF30FD721C5976AB00637A6C /* ImageController.swift */,
 				FF293AB41C63F87600B0D2C6 /* AnimationController.swift */,
@@ -455,6 +458,7 @@
 				FF293AB71C63FDA800B0D2C6 /* AppearanceController.swift in Sources */,
 				FF30FD731C5976AB00637A6C /* ImageController.swift in Sources */,
 				FF30FD771C59842700637A6C /* RegistrationTableViewController.swift in Sources */,
+				FF6CD0AD1C759C3D00FA0FE9 /* ResourceController.swift in Sources */,
 				FFE4182D1C5FDA150061BC73 /* AlertExtension.swift in Sources */,
 				FF0434D01C5D37D1004BA4FB /* User.swift in Sources */,
 				E60105291C57E3EA00536661 /* AppDelegate.swift in Sources */,
