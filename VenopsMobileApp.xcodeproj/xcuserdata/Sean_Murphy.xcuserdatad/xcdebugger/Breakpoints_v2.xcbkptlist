@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UserController.swift"
-            timestampString = "476331283.754108"
+            timestampString = "477467625.171477"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "verifiedDataForUserCreation(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -153,13 +153,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "UserController.swift"
-            timestampString = "476325551.731414"
+            filePath = "VenopsMobileApp/ContentController.swift"
+            timestampString = "477472303.654067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "deleteUserDataFromNSUserDefaults()"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "verifyRequiredTextFields(usernameTextField:emailTextField:passwordTextField:confirmPasswordTextField:firstNameTextField:lastNameTextField:streetAddressTextField:cityTextField:stateTextField:zipcodeTextField:completion:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UserController.swift"
+            timestampString = "477472664.088831"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "verifyEmail(_:completion:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UserController.swift"
+            timestampString = "477473481.61773"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "verifyEmail(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -22,9 +22,19 @@ class User: Equatable, FirebaseType{
     private let zipcodeKey = "zipcode"
     private let licenseNumberKey = "licenseNumber"
 
+    private let weightKey = "weight"
+    private let heightKey = "height"
+    private let organDonorKey = "organDonor"
+    private let licenseExpirationDateKey = "licenseExpirationDate"
+    private let eyeColorKey = "eyeColor"
+    private let hairColorKey = "hairColor"
+    private let sexKey = "sex"
+    private let deviceTypeKey = "deviceType"
+    private let dateOfRegistrationKey = "dateOfRegistration"
+
     var email = ""
     var firstName: String?
-//    var middleName: String?
+    var middleName: String?
     var lastName: String?
     var username: String?
     var dateOfBirth: String?
@@ -33,6 +43,16 @@ class User: Equatable, FirebaseType{
     var zipcode: String?
     var licenseNumber: String?
     var identifier: String?
+    var weight: String?
+    var height: String?
+    var organDonor: String?
+    var licenseExpirationDate: String?
+
+    var eyeColor: String?
+    var hairColor: String?
+    var sex: String?
+    var deviceType: String?
+    var dateOfRegistration: String?
     var endpoint: String {
         return "users"
     }
@@ -43,9 +63,9 @@ class User: Equatable, FirebaseType{
         if let firstName = firstName {
             json.updateValue(firstName, forKey: firstNameKey)
         }
-//        if let middleName = middleName {
-//            json.updateValue(middleName, forKey: middleNameKey)
-//        }
+        if let middleName = middleName {
+            json.updateValue(middleName, forKey: middleNameKey)
+        }
         if let lastName = lastName {
             json.updateValue(lastName, forKey: lastNameKey)
         }
@@ -67,6 +87,33 @@ class User: Equatable, FirebaseType{
         if let licenseNumber = licenseNumber {
             json.updateValue(licenseNumber, forKey: licenseNumberKey)
         }
+        if let weight = weight {
+            json.updateValue(weight, forKey: weightKey)
+        }
+        if let height = height {
+            json.updateValue(height, forKey: heightKey)
+        }
+        if let organDonor = organDonor {
+            json.updateValue(organDonor, forKey: organDonorKey)
+        }
+        if let licenseExpirationDate = licenseExpirationDate {
+            json.updateValue(licenseExpirationDate, forKey: licenseExpirationDateKey)
+        }
+        if let eyeColor = eyeColor {
+            json.updateValue(eyeColor, forKey: eyeColorKey)
+        }
+        if let hairColor = hairColor {
+            json.updateValue(hairColor, forKey: hairColorKey)
+        }
+        if let sex = sex {
+            json.updateValue(sex, forKey: sexKey)
+        }
+        if let deviceType = deviceType {
+            json.updateValue(deviceType, forKey: deviceTypeKey)
+        }
+        if let dateOfRegistration = dateOfRegistration {
+            json.updateValue(dateOfRegistration, forKey: dateOfRegistrationKey)
+        }
 
         return json
     }
@@ -77,7 +124,7 @@ class User: Equatable, FirebaseType{
 
         self.email = email
         self.firstName = json[firstNameKey] as? String
-//        self.middleName = json[middleNameKey] as? String
+        self.middleName = json[middleNameKey] as? String
         self.lastName = json[lastNameKey] as? String
         self.username = json[usernameKey] as? String
         self.dateOfBirth = json[dateOfBirthKey] as? String
@@ -85,15 +132,24 @@ class User: Equatable, FirebaseType{
         self.state = json[stateKey] as? String
         self.zipcode = json[zipcodeKey] as? String
         self.licenseNumber = json[licenseNumberKey] as? String
+        self.weight = json[weightKey] as? String
+        self.height = json[heightKey] as? String
+        self.organDonor = json[organDonorKey] as? String
+        self.licenseExpirationDate = json[licenseExpirationDateKey] as? String
+        self.eyeColor = json[eyeColorKey] as? String
+        self.hairColor = json[hairColorKey] as? String
+        self.sex = json[sexKey] as? String
+        self.deviceType = json[deviceTypeKey] as? String
+        self.dateOfRegistration = json[dateOfRegistrationKey] as? String
         self.identifier = identifier
     }
 
 
-    init(email: String, uid: String, firstName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?) {
+    init(email: String, uid: String, firstName: String?, middleName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?, weight: String?, height: String?, organDonor: String?, licenseExpirationDate: String?, eyeColor: String?, hairColor: String?, sex: String?, deviceType: String?, dateOfRegistration: String?) {
 
         self.email = email
         self.firstName = firstName
-//        self.middleName = middleName
+        self.middleName = middleName
         self.lastName = lastName
         self.username = username
         self.dateOfBirth = dateOfBirth
@@ -101,6 +157,15 @@ class User: Equatable, FirebaseType{
         self.state = state
         self.zipcode = zipcode
         self.licenseNumber = licenseNumber
+        self.weight = weight
+        self.height = height
+        self.organDonor = organDonor
+        self.licenseExpirationDate = licenseExpirationDate
+        self.eyeColor = eyeColor
+        self.hairColor = hairColor
+        self.sex = sex
+        self.deviceType = deviceType
+        self.dateOfRegistration = dateOfRegistration
         self.identifier = uid
     }
 }

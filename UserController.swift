@@ -11,6 +11,7 @@ import Firebase
 import UIKit
 
 
+
 class UserController: UIViewController{
 
 
@@ -101,7 +102,7 @@ class UserController: UIViewController{
         }
     }
 
-    static func checkEmail(email: String, completion: (success: Bool) -> Void){
+    static func verifyEmail(email: String, completion: (success: Bool) -> Void){
 
         let ref = Firebase(url: "https://venopsmobile.firebaseio.com/users")
 
@@ -114,11 +115,34 @@ class UserController: UIViewController{
 
                 if user?.email == email {
 
-                    completion(success: true)
+                    completion(success: false)
 
                 } else {
 
+                    completion(success: true)
+                }
+            }
+        })
+    }
+
+    static func verifyUsername(username: String, completion: (success: Bool) -> Void){
+
+        let ref = Firebase(url: "https://venopsmobile.firebaseio.com/users")
+
+        ref.queryOrderedByChild("username").queryEqualToValue(username).observeEventType(.ChildAdded, withBlock: { snapshot in
+
+
+            if let userDictionary = snapshot.value as? [String:String] {
+
+                let user = User(json: userDictionary, identifier: snapshot.key)
+
+                if user?.username == username {
+
                     completion(success: false)
+
+                } else {
+                    
+                    completion(success: true)
                 }
             }
         })
@@ -145,7 +169,7 @@ class UserController: UIViewController{
         }
     }
 
-    static func createUser(email: String, password: String, firstName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?, completion: (success: Bool, user: User?, error: NSError?) -> Void) {
+    static func createUser(email: String, password: String, firstName: String?, middleName: String?, lastName: String?, username: String?, dateOfBirth: String?, city: String?, state: String?, zipcode: String?, licenseNumber: String?, weight: String?, height: String?, organDonor: String?, licenseExpirationDate: String?, eyeColor: String?, hairColor: String?, sex: String?, deviceType: String?, dateOfRegistration: String?, completion: (success: Bool, user: User?, error: NSError?) -> Void) {
 
         FirebaseController.base.createUser(email, password: password) { (error, response) -> Void in
 
@@ -155,7 +179,7 @@ class UserController: UIViewController{
                 completion(success: false, user: nil, error: error)
             } else {
                 if let uid = response["uid"] as? String {
-                    var user = User(email: email, uid: uid, firstName: firstName, lastName: lastName, username: username, dateOfBirth: dateOfBirth, city: city, state: state, zipcode: zipcode, licenseNumber: licenseNumber)
+                    var user = User(email: email, uid: uid, firstName: firstName, middleName: middleName, lastName: lastName, username: username, dateOfBirth: dateOfBirth, city: city, state: state, zipcode: zipcode, licenseNumber: licenseNumber, weight: weight, height: height, organDonor: organDonor, licenseExpirationDate: licenseExpirationDate, eyeColor: eyeColor, hairColor: hairColor, sex: sex, deviceType: deviceType, dateOfRegistration: dateOfRegistration)
                     user.save()
 
                     authenticateUser(email, password: password, completion: { (success, user) -> Void in
@@ -313,10 +337,7 @@ class UserController: UIViewController{
         completion(success: true, error: nil, verifiedData: userDataDictionary)
     }
     
-    
-    
-    
-    
+
 }
 
 
