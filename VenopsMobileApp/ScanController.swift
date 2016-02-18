@@ -47,49 +47,49 @@ class ScanController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                     case dataArray[6] != "DAC":
                         let rawFirstName = dataArray.filter({$0.hasPrefix("DAC")}).joinWithSeparator("")
                         let firstName = rawFirstName.stringByReplacingOccurrencesOfString("DAC", withString: "")
-                        scanDataDictionary["firstName"] = firstName
+                        scanDataDictionary["firstName"] = firstName.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(firstName, key: "firstName")
                         fallthrough
                     case dataArray[7] != "DAD":
                         let rawMiddleName = dataArray.filter({$0.hasPrefix("DAD")}).joinWithSeparator("")
                         let middleName = rawMiddleName.stringByReplacingOccurrencesOfString("DAD", withString: "")
-                        scanDataDictionary["middleName"] = middleName
+                        scanDataDictionary["middleName"] = middleName.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(middleName, key: "middleName")
                         fallthrough
                     case dataArray[5] != "DCS":
                         let rawLastName = dataArray.filter({$0.hasPrefix("DCS")}).joinWithSeparator("")
                         let lastName = rawLastName.stringByReplacingOccurrencesOfString("DCS", withString: "")
-                        scanDataDictionary["lastName"] = lastName
+                        scanDataDictionary["lastName"] = lastName.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(lastName, key: "lastName")
                         fallthrough
                     case dataArray[9] != "DBB":
                         let rawDateOfBirth = dataArray.filter({$0.hasPrefix("DBB")}).joinWithSeparator("")
                         let dateOfBirth = rawDateOfBirth.stringByReplacingOccurrencesOfString("DBB", withString: "")
-                        scanDataDictionary["dateOfBirth"] = dateOfBirth
+                        scanDataDictionary["dateOfBirth"] = dateOfBirth.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(dateOfBirth, key: "dateOfBirth")
                         fallthrough
                     case dataArray[17] != "DAQ":
                         let rawLicenseNumber = dataArray.filter({$0.hasPrefix("DAQ")}).joinWithSeparator("")
                         let licenseNumber = rawLicenseNumber.stringByReplacingOccurrencesOfString("DAQ", withString: "")
-                        scanDataDictionary["licenseNumber"] = licenseNumber
+                        scanDataDictionary["licenseNumber"] = licenseNumber.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(licenseNumber, key: "licenseNumber")
                         fallthrough
                     case dataArray[13] != "DAG":
                         let rawAddress = dataArray.filter({$0.hasPrefix("DAG")}).joinWithSeparator("")
                         let address = rawAddress.stringByReplacingOccurrencesOfString("DAG", withString: "")
-                        scanDataDictionary["address"] = address
+                        scanDataDictionary["address"] = address.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(address, key: "address")
                         fallthrough
                     case dataArray[14] != "DAI":
                         let rawCity = dataArray.filter({$0.hasPrefix("DAI")}).joinWithSeparator("")
                         let city = rawCity.stringByReplacingOccurrencesOfString("DAI", withString: "")
-                        scanDataDictionary["city"] = city
+                        scanDataDictionary["city"] = city.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(city, key: "city")
                         fallthrough
                     case dataArray[15] != "DAJ":
                         let rawState = dataArray.filter({$0.hasPrefix("DAJ")}).joinWithSeparator("")
                         let state = rawState.stringByReplacingOccurrencesOfString("DAJ", withString: "")
-                        scanDataDictionary["state"] = state
+                        scanDataDictionary["state"] = state.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(state, key: "state")
                         fallthrough
                     case dataArray[16] != "DAK":
@@ -119,13 +119,13 @@ class ScanController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                     case dataArray[11] != "DAY":
                         let rawEyeColor = dataArray.filter({$0.hasPrefix("DAY")}).joinWithSeparator("")
                         let eyeColor = rawEyeColor.stringByReplacingOccurrencesOfString("DAY", withString: "")
-                        scanDataDictionary["eyeColor"] = eyeColor
+                        scanDataDictionary["eyeColor"] = eyeColor.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(eyeColor, key: "eyeColor")
                         fallthrough
                     case dataArray[24] != "DAZ":
                         let rawHairColor = dataArray.filter({$0.hasPrefix("DAZ")}).joinWithSeparator("")
                         let hairColor = rawHairColor.stringByReplacingOccurrencesOfString("DAZ", withString: "")
-                        scanDataDictionary["hairColor"] = hairColor
+                        scanDataDictionary["hairColor"] = hairColor.lowercaseString
                         UserController.saveUserDataToNSUserDefaults(hairColor, key: "hairColor")
                         fallthrough
                     case dataArray[10] != "DBH":

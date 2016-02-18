@@ -90,6 +90,9 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="IDK-Zz-YcU" kind="presentation" id="OLJ-73-5qS"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Quick, Secure, and Compliant Way to Secure Medical Facilities" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfi-ZT-9SY">
                                         <rect key="frame" x="147" y="167" width="306" height="90"/>
@@ -288,6 +291,7 @@
                         <outlet property="emailTextField" destination="Tvt-eE-ced" id="3yF-Bc-Rg4"/>
                         <outlet property="passwordTextField" destination="lZa-0f-uNm" id="cF8-hh-XzM"/>
                         <segue destination="doe-TH-8zo" kind="presentation" identifier="toUserProfileFromSuccessfulLogin" id="Vif-kM-gRc"/>
+                        <segue destination="NrO-vc-Omv" kind="presentation" identifier="toRegistrationTableViewController" id="Nl7-SS-3o7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59F-ee-wJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1609,7 +1613,7 @@
         <image name="venops_logoLarge" width="3540" height="506"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="APO-bJ-FXq"/>
         <segue reference="1kQ-BK-ODb"/>
+        <segue reference="APO-bJ-FXq"/>
     </inferredMetricsTieBreakers>
 </document>

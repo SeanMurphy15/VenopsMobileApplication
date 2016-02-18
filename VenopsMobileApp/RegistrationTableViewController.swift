@@ -20,7 +20,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
     @IBOutlet weak var scanAnimiationView: UIImageView!
 
     @IBOutlet weak var usernameTextField: UITextField!
-    
+
     @IBOutlet weak var emailTextField: UITextField!
 
     @IBOutlet weak var passwordTextField: UITextField!
@@ -55,7 +55,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
 
     override func viewDidLoad() {
 
-      AnimationController.animateScannning(scanAnimiationView)
+        AnimationController.animateScannning(scanAnimiationView)
 
     }
 
@@ -88,15 +88,19 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
 
     @IBAction func registerButtonTapped(sender: AnyObject) {
 
-       ContentController.verifyRequiredTextFields(usernameTextField: "sdm123", emailTextField: "maloneyjay1@gmail.com", passwordTextField: "123", confirmPasswordTextField: "123", firstNameTextField: "bob", lastNameTextField: "sniffs", streetAddressTextField: "666", cityTextField: "HELL", stateTextField: "FIRE", zipcodeTextField: "666") { (success, title, message, actionTitle) -> Void in
+        ContentController.verifyRequiredTextFields(usernameTextField: "sdm123", emailTextField: "maloneyjay@gmail.com", passwordTextField: "123", confirmPasswordTextField: "1234", firstNameTextField: "bob", lastNameTextField: "sniffs", streetAddressTextField: "666", cityTextField: "HELL", stateTextField: "FIRE", zipcodeTextField: "666") { (success, title, message, actionTitle) -> Void in
 
-        if success == false {
+            if success == false {
 
-            self.generalAlert(title: title!, message: message!, actionTitle: actionTitle!)
+                self.generalAlert(title: title!, message: message!, actionTitle: actionTitle!)
+            } else {
+
+                
+
+            }
+
         }
 
-        }
-        
     }
 
 
@@ -125,7 +129,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
                 self.presentViewController(imagePicker, animated: true, completion: nil)
             }))
         }
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             avatarAlert.addAction(UIAlertAction(title: "Camera", style: .Default, handler: { (_) -> Void in
                 imagePicker.sourceType = .Camera
@@ -142,16 +146,16 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         picker.dismissViewControllerAnimated(true, completion: nil)
-
+        
         if let myImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.profileImageView.image = myImage
             
         }
     }
-
-
-
-
+    
+    
+    
+    
 }
 
 

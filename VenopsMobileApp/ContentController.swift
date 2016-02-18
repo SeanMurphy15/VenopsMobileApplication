@@ -32,7 +32,7 @@ class ContentController{
             completion(success: false, title: "Incomplete Registration", message: "No data for \"Confirm Password\". Please fill in the required field to continue.", actionTitle: "OK")
             break
         case passwordTextField != confirmPasswordTextField:
-            completion(success: false, title: "Passwords Don't Match", message: "Please verify password fields to cotinue.", actionTitle: "Redo")
+            completion(success: false, title: "Passwords Don't Match", message: "Please verify password fields to continue.", actionTitle: "Redo")
             break
         case firstNameTextField == "":
             completion(success: false, title: "Incomplete Registration", message: "No data for \"First Name\". Please fill in the required field to continue.", actionTitle: "OK")

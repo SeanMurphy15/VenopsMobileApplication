@@ -87,6 +87,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
             _ = registrationTableViewController.view
 
+            registrationTableViewController.usernameTextField.text = UserController.publishUserDataFromNSUserDefaults("username")
+            registrationTableViewController.emailTextField.text = UserController.publishUserDataFromNSUserDefaults("email")
+            registrationTableViewController.passwordTextField.text = UserController.publishUserDataFromNSUserDefaults("password")
+            registrationTableViewController.confirmPasswordTextField.text = UserController.publishUserDataFromNSUserDefaults("confirmPassword")
+
             registrationTableViewController.firstNameTextField.text = scanData["firstName"]
             registrationTableViewController.lastNameTextField.text = scanData["lastName"]
             registrationTableViewController.streetAddressTextField.text = scanData["address"]

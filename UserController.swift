@@ -63,11 +63,17 @@ class UserController: UIViewController{
         return nil
     }
 
-    static func deleteUserDataFromNSUserDefaults(){
+    static func deleteAllUserDataFromNSUserDefaults(){
 
         for key in NSUserDefaults.standardUserDefaults().dictionaryRepresentation().keys {
             NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
         }
+    }
+
+    static func deleteUserDataObjectFromNSUserDefaults(dataObject: String){
+
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.removeObjectForKey(dataObject)
     }
 
 
