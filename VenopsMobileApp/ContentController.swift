@@ -53,30 +53,64 @@ class ContentController{
             completion(success: false, title: "Incomplete Registration", message: "No data for \"Zipcode\". Please fill in the required field to continue.", actionTitle: "OK")
             break
 
+
         default:
 
-            UserController.verifyUsername(usernameTextField!, completion: { (success) -> Void in
+            completion(success: true, title: nil, message: nil, actionTitle: nil)
 
-                if success == false {
-
-
-                    completion(success: false, title: "Error", message: "\(usernameTextField!) is already in use. Please choose another username.", actionTitle: "Redo")
-
-                }
-            })
-
-            UserController.verifyEmail(emailTextField!, completion: { (success) -> Void in
-
-                if success == false {
-
-
-                    completion(success: false, title: "Error", message: "\(emailTextField!) is already in use. Please choose another email.", actionTitle: "Redo")
-
-                }
-                
-            })
             break
+            
         }
+    }
+
+
+    static func verifyOptionalTextFields(companyTextField companyTextField: String?, websiteTextField: String?, workPhoneNumberTextField: String?, mobilePhoneNumberTextField: String?, venopsReferalTextView: String?, completion:(success: Bool, optionalTextFieldData: [String:String])-> Void){
+
+        var textFieldDataDictionary = [String:String]()
+
+        switch (1 > 0) {
+        case companyTextField != "":
+            if let company = companyTextField{
+                textFieldDataDictionary["company"] = company
+            }
+         fallthrough
+
+        case websiteTextField != "":
+            if let website = websiteTextField{
+                textFieldDataDictionary["website"] = website
+            }
+            fallthrough
+        case workPhoneNumberTextField != "":
+            if let workPhoneNumber = workPhoneNumberTextField{
+                textFieldDataDictionary["workPhoneNumber"] = workPhoneNumber
+            }
+            fallthrough
+
+        case mobilePhoneNumberTextField != "":
+            if let mobilePhoneNumber = mobilePhoneNumberTextField{
+                textFieldDataDictionary["mobilePhoneNumber"] = mobilePhoneNumber
+            }
+            fallthrough
+
+        case mobilePhoneNumberTextField != "":
+            if let mobilePhoneNumber = mobilePhoneNumberTextField{
+                textFieldDataDictionary["mobilePhoneNumber"] = mobilePhoneNumber
+            }
+            fallthrough
+
+        case venopsReferalTextView != "":
+            if let venopsReferal = venopsReferalTextView{
+                textFieldDataDictionary["venopsReferal"] = venopsReferal
+            }
+            break
+
+        default:
+
+            completion(success: false, optionalTextFieldData: [:])
+            break;
+        }
+
+        completion(success: true, optionalTextFieldData: textFieldDataDictionary)
     }
 
 

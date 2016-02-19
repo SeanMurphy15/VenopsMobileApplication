@@ -34,7 +34,7 @@ class RegistrationConfirmationTableViewController: UITableViewController, UIImag
         super.viewDidLoad()
         
 
-        UserController.deleteUserDataFromNSUserDefaults()
+        
     }
     
 
