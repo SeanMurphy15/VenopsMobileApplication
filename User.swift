@@ -32,6 +32,12 @@ class User: Equatable, FirebaseType{
     private let deviceTypeKey = "deviceType"
     private let dateOfRegistrationKey = "dateOfRegistration"
 
+    private let companyKey = "company"
+    private let websiteKey = "website"
+    private let workPhoneNumberKey = "workPhoneNumber"
+    private let mobilePhoneNumberKey = "mobilePhoneNumber"
+    private let venopsReferralKey = "venopsReferral"
+
     var email = ""
     var firstName: String?
     var middleName: String?
@@ -53,6 +59,13 @@ class User: Equatable, FirebaseType{
     var sex: String?
     var deviceType: String?
     var dateOfRegistration: String?
+
+    var company: String?
+    var website: String?
+    var workPhoneNumber: String?
+    var mobilePhoneNumber: String?
+    var venopsReferral: String?
+
     var endpoint: String {
         return "users"
     }
@@ -113,6 +126,21 @@ class User: Equatable, FirebaseType{
         }
         if let dateOfRegistration = dateOfRegistration {
             json.updateValue(dateOfRegistration, forKey: dateOfRegistrationKey)
+        }
+        if let company = company {
+            json.updateValue(company, forKey: companyKey)
+        }
+        if let website = website {
+            json.updateValue(website, forKey: websiteKey)
+        }
+        if let workPhoneNumber = workPhoneNumber {
+            json.updateValue(workPhoneNumber, forKey: workPhoneNumberKey)
+        }
+        if let mobilePhoneNumber = mobilePhoneNumber {
+            json.updateValue(mobilePhoneNumber, forKey: mobilePhoneNumberKey)
+        }
+        if let venopsReferral = venopsReferral {
+            json.updateValue(venopsReferral, forKey: venopsReferral)
         }
 
         return json

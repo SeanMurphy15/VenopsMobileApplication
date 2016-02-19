@@ -19,6 +19,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
     let session         : AVCaptureSession = AVCaptureSession()
     var previewLayer    : AVCaptureVideoPreviewLayer!
+
     var scanData: [String:String] = [:]
 
 
@@ -98,6 +99,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             registrationTableViewController.cityTextField.text = scanData["city"]
             registrationTableViewController.stateTextField.text = scanData["state"]
             registrationTableViewController.zipcodeTextField.text = scanData["zipcode"]
+
 
         }
 

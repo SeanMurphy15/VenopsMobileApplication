@@ -15,6 +15,8 @@ class ScanController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
 
     static func scanData(metadataObjects: [AnyObject], completion:(success: Bool, scanData: [String: String])-> Void){
 
+        // add more barcodes here for extended reading capabilities
+
         let barCodeTypes = [AVMetadataObjectTypePDF417Code]
 
         for metadata in metadataObjects{
@@ -150,7 +152,6 @@ class ScanController: UIViewController, AVCaptureMetadataOutputObjectsDelegate{
                             UserController.saveUserDataToNSUserDefaults("female", key: "sex")
                         }
 
-                        print(scanDataDictionary)
                         fallthrough
 
 

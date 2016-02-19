@@ -12,8 +12,8 @@ import Firebase
 
 class RegistrationTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
-    static var currentDeviceType = ResourceController.currentDeviceType()
-    static var currentDate = ResourceController.currentDate()
+     var currentDeviceType = ResourceController.currentDeviceType()
+     var currentDate = ResourceController.currentDate()
 
 
 
@@ -61,12 +61,14 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
 
     override func viewDidAppear(animated: Bool) {
 
+        UserController.deleteUserDataObjectFromNSUserDefaults("username")
+        UserController.deleteUserDataObjectFromNSUserDefaults("email")
+        UserController.deleteUserDataObjectFromNSUserDefaults("password")
+        UserController.deleteUserDataObjectFromNSUserDefaults("confirmPassword")
+
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
 
     @IBAction func scanDriversLicenseButtonTapped(sender: AnyObject) {
 
@@ -88,14 +90,74 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
 
     @IBAction func registerButtonTapped(sender: AnyObject) {
 
-        ContentController.verifyRequiredTextFields(usernameTextField: "sdm123", emailTextField: "maloneyjay@gmail.com", passwordTextField: "123", confirmPasswordTextField: "1234", firstNameTextField: "bob", lastNameTextField: "sniffs", streetAddressTextField: "666", cityTextField: "HELL", stateTextField: "FIRE", zipcodeTextField: "666") { (success, title, message, actionTitle) -> Void in
+        ContentController.verifyRequiredTextFields(usernameTextField: usernameTextField.text, emailTextField: emailTextField.text, passwordTextField: passwordTextField.text, confirmPasswordTextField: confirmPasswordTextField.text, firstNameTextField: firstNameTextField.text, lastNameTextField: lastNameTextField.text, streetAddressTextField: streetAddressTextField.text, cityTextField: cityTextField.text, stateTextField: stateTextField.text, zipcodeTextField: zipcodeTextField.text) { (success, title, message, actionTitle) -> Void in
 
             if success == false {
 
                 self.generalAlert(title: title!, message: message!, actionTitle: actionTitle!)
+
             } else {
 
-                
+                ContentController.verifyOptionalTextFields(companyTextField: self.companyTextField.text, websiteTextField: self.websiteTextField.text, workPhoneNumberTextField: self.workPhoneNumberTextField.text, mobilePhoneNumberTextField: self.mobilePhoneNumberTextField.text, venopsReferalTextView: self.venopsReferalTextField.text, completion: { (success, optionalTextFieldData) -> Void in
+
+                    if success == false {
+
+                                print("error getting data from optional text fields")
+                    } else {
+
+                        UserController.createUser(self.emailTextField.text!,
+                            password: self.passwordTextField.text!,
+                            firstName: self.firstNameTextField.text!,
+                            middleName: UserController.publishUserDataFromNSUserDefaults("middleName"),
+                            lastName: self.lastNameTextField.text!,
+                            username: self.usernameTextField.text!,
+                            dateOfBirth: UserController.publishUserDataFromNSUserDefaults("dateOfBirth"),
+                            city: self.cityTextField.text!,
+                            state: self.stateTextField.text!,
+                            zipcode: self.zipcodeTextField.text!,
+                            licenseNumber: UserController.publishUserDataFromNSUserDefaults("licenseNumber"),
+                            weight: UserController.publishUserDataFromNSUserDefaults("weight"),
+                            height: UserController.publishUserDataFromNSUserDefaults("height"),
+                            organDonor: UserController.publishUserDataFromNSUserDefaults("organDonor"),
+                            licenseExpirationDate: UserController.publishUserDataFromNSUserDefaults("licenseExpirationDate"),
+                            eyeColor: UserController.publishUserDataFromNSUserDefaults("eyeColor"),
+                            hairColor: UserController.publishUserDataFromNSUserDefaults("hairColor"),
+                            sex: UserController.publishUserDataFromNSUserDefaults("sex"),
+                            deviceType: self.currentDeviceType,
+                            dateOfRegistration: self.currentDate,
+                            completion: { (success, user, error) -> Void in
+
+                                if success == false {
+
+                                    if let error = error {
+
+                                        self.generalAlert(title: "Error", message: "\(error.localizedDescription)", actionTitle: "OK")
+                                    }
+
+                                } else {
+
+                                    if let userIdentifier = user?.identifier {
+
+                                        if let profileImage = self.profileImageView.image {
+
+                                            ImageController.saveProfileImage(identifier: userIdentifier, image: profileImage, completion: { (success) -> Void in
+
+                                                if success == false {
+
+                                                    print("Profile photo did not upload")
+
+                                                } else {
+
+                                                    print("User successfully uploaded to Firebase!")
+                                                }
+                                            })
+                                        }
+                                    }
+                                }
+                        })
+
+                    }
+                })
 
             }
 
