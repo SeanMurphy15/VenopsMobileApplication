@@ -97,7 +97,7 @@
                                             <constraint firstAttribute="height" constant="90" id="KEN-nW-dXd"/>
                                             <constraint firstAttribute="width" constant="306" id="Phh-X4-USS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" red="0.3248895202" green="0.3248895202" blue="0.3248895202" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
